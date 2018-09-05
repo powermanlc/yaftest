@@ -15,6 +15,15 @@ class IndexController extends Yaf_Controller_Abstract {
 	public function indexAction($name = "Stranger") {
 		//1. fetch query
 		$get = $this->getRequest()->getQuery("get", "default value");
+        $file_path = "/home/www/yaftest/conf/db.ini";
+        $obj_conf = new Yaf_Config_Ini ($file_path, $section);
+        $conf = Yaf_Application::app()->getConfig();
+$objConf1 = Yaf_Registry::get('db');
+//$objConf2 = Yaf_Registry::get('config');
+//$objConf3 = Yaf_Registry::get('db');
+    var_dump($objConf1);die;
+        //var_dump($obj_conf, $conf, $objConf);
+       // var_dump($objConf1, $objConf2, $objConf3);
 
 		//2. fetch model
 		$model = new SampleModel();

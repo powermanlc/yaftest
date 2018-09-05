@@ -5,7 +5,7 @@ class Comm_Db_Conn
 	
 	public static function getDb($alias = NULL) {
 		if (is_null($alias)) {
-			$name = 'test1';
+			$name = 'test';
 			
 		}
 		$db = Comm_Db_Mysql();
