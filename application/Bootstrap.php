@@ -13,9 +13,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 		//把配置保存起来
 		$appConfig = Yaf_Application::app()->getConfig();
 		Yaf_Registry::set('appconfig', $appConfig);
-//var_dump($appConfig->get('application'), $appConfig);die;
         $config = new Yaf_Config_Ini($appConfig->get('application')->get('conf') . 'db.ini');
-        //$config = new Yaf_Config_Ini('/home/www/yaftest/conf/' .'db.ini');
         Yaf_Registry::set('db', $config);
 	}
 

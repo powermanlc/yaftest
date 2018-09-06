@@ -2,7 +2,7 @@
 /**
  * @author Damon 2013.11.26
  */
-class Comm_Db_Mysql
+class Comm_Db_MysqlModel
 {
     private $conn = null;
     private $model = null;
@@ -32,22 +32,22 @@ class Comm_Db_Mysql
     * @return void
     */
     
-    public function __construct($dbHost, $dbPort, $dbUser, $dbPwd, $dbName, $charset, $method)
+    public function __construct($dbHost, $dbPort, $dbUser, $dbPwd, $dbName, $charset, $method = 'w')
     {
         $this->conn = @mysql_connect($dbHost . ':' . $dbPort, $dbUser, $dbPwd, true);
         if(!$this->conn) {
-            Ekw_DBC::setBlackList();
-            Glo_Log::warning("Error:[mysql connect fail], Detail:['times':'" . time() . "'], mysql_error:[" . mysql_error() . "]");
+            //Ekw_DBC::setBlackList();
+           // Glo_Log::warning("Error:[mysql connect fail], Detail:['times':'" . time() . "'], mysql_error:[" . mysql_error() . "]");
             throw new Yaf_Exception('mysql connect faild');
         }
 
         if(!mysql_select_db($dbName, $this->conn)) {
-            Glo_Log::warning("Error:[mysql select db error], Detail:['times':'" . time() . "'], mysql_error[" . mysql_error($this->conn) . "]");
+            //Glo_Log::warning("Error:[mysql select db error], Detail:['times':'" . time() . "'], mysql_error[" . mysql_error($this->conn) . "]");
             throw new Yaf_Exception('mysql select db error');
         }
 
         if(!mysql_set_charset($charset, $this->conn)) {
-            Glo_Log::warning("Error:[mysql set charset error], Detail:['times':'" . time() . "'], mysql_error[" . mysql_error($this->conn) . "]");
+            //Glo_Log::warning("Error:[mysql set charset error], Detail:['times':'" . time() . "'], mysql_error[" . mysql_error($this->conn) . "]");
             throw new Yaf_Exception('mysql select set charset error');
         }
 

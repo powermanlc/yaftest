@@ -6,7 +6,7 @@
 * @version 1.0
 * @date 2015-11-9
 */
-class Comm_Db_Redis {
+class Comm_Db_RedisModel {
     //redis 对象   
     private $objRedis = null;
     //redis 配置
